@@ -43,6 +43,7 @@ public class GLTFUnarchiver {
     private var textures: [SCNMaterialProperty?] = []
     private var images: [Image?] = []
     private var maxAnimationDuration: CFTimeInterval = 0.0
+    private var childParentLink =  [String: [String]]()
     
     #if !os(watchOS)
         private var workingAnimationGroup: CAAnimationGroup! = nil
@@ -121,7 +122,14 @@ public class GLTFUnarchiver {
         }
         
         self.initArrays()
+            
+        try self.readGltfExtras(jsonData: jsonData)
     }
+    
+    func getParentToChildLink() -> [String : [String]]{
+        return childParentLink
+    }
+
     
     private func initArrays() {
         if let scenes = self.json.scenes {
@@ -178,6 +186,102 @@ public class GLTFUnarchiver {
         if let images = self.json.images {
             self.images = [Image?](repeating: nil, count: images.count)
         }
+    }
+    
+    private func readGltfExtras(jsonData : Data) throws {
+        guard let `myJson`:[String:Any] = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String:Any] else {return}
+
+         if let  scenes = myJson["scenes"] as? [NSDictionary] {
+             for scene in scenes {
+                 for (scene_key, scene_value) in scene {
+                     if( scene_key as! String == "extras") {
+                         for (extras_key, extras_value) in (scene_value as! NSDictionary) {
+                             if (extras_key as! String == "ifc") {
+                                 for (ifc_key, ifc_value) in (extras_value as! NSDictionary) {
+                                     if (ifc_key as! String == "decomposition") {
+
+                                         class NodeContainer {
+                                             var node : Any?
+                                             var parentId: Any?
+                                             var id: Any?
+                                         }
+
+                                         let nodes : NSMutableArray = []
+
+                                         let headNode = NodeContainer()
+                                         headNode.node = ifc_value
+                                         nodes.add(headNode)
+
+                                         while (nodes.count > 0) {
+                                             if (((nodes[0] as! NodeContainer).node as? NSDictionary) != nil) {
+
+                                                 let local_nodes : NSMutableArray = []
+                                                 var thisId = "headNode"
+
+                                                 for (child_key, child_value) in ((nodes[0] as! NodeContainer).node as! NSDictionary) {
+
+                                                     if (child_key as? String == "_id") {
+                                                         thisId = child_value as! String
+                                                     }
+                                                     else
+                                                     if ((child_value as? NSArray) != nil) {
+                                                         for (array_value) in (child_value as! NSArray) {
+                                                             if ((array_value as? NSDictionary) != nil) {
+                                                                 local_nodes.add(array_value)
+                                                             }
+                                                         }
+                                                     }
+                                                     else
+                                                     if ((child_value as? NSDictionary) != nil) {
+                                                         local_nodes.add(child_value);
+                                                     }
+                                                 }
+
+                                                 (nodes[0] as! NodeContainer).id = thisId
+
+                                                 for (newNode) in (local_nodes) {
+                                                     let childNode = NodeContainer()
+                                                     childNode.node = newNode
+                                                     childNode.parentId = thisId
+                                                     nodes.add(childNode)
+                                                 }
+                                             }
+                                             else
+                                             if (((nodes[0] as! NodeContainer).node as? NSArray) != nil) {
+                                                 for (array_value) in ((nodes[0] as! NodeContainer).node as! NSArray) {
+                                                     if ((array_value as? NSDictionary) != nil) {
+                                                         let childNode = NodeContainer()
+                                                         childNode.node = array_value
+                                                         childNode.id = (nodes[0] as! NodeContainer).parentId
+                                                         nodes.add(childNode)
+                                                     }
+                                                 }
+                                             }
+
+                                             if ((nodes[0] as! NodeContainer).id as! String != "headNode") {
+                                                 
+                                                 let child : String = ((nodes[0] as! NodeContainer).id as! String)
+                                                 let parent : String = ((nodes[0] as! NodeContainer).parentId as! String)
+
+                                                 if ((childParentLink[parent]) != nil) {
+                                                     childParentLink[parent]!.append(child);
+                                                 }
+                                                 else {
+                                                     childParentLink[parent] = [child];
+                                                 }
+                                             }
+
+                                             nodes.removeObject(at: 0)
+                                         }
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+         }
+
     }
     
     private func getBase64Str(from str: String) -> String? {

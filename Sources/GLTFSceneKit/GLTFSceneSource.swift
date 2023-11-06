@@ -66,6 +66,10 @@ public class GLTFSceneSource : SCNSceneSource {
         #endif
     }
     
+    public func getParentToChildLink() -> [String : [String]] {
+        return  self.loader.getParentToChildLink()
+    }
+    
     /*
     public func cameraNodes() -> [SCNNode] {
         var cameraNodes = [SCNNode]()
