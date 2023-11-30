@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,6 +43,20 @@
 		49FBB51227670C3200674883 /* GLTFShaderModifierSurface_pbrSpecularGlossiness_texture_doubleSidedWorkaround.shader in Resources */ = {isa = PBXBuildFile; fileRef = 49D5C8B42767081E0076FB22 /* GLTFShaderModifierSurface_pbrSpecularGlossiness_texture_doubleSidedWorkaround.shader */; };
 		49FBB51327670C3200674883 /* GLTFShaderModifierFragment_alphaCutoff.shader in Resources */ = {isa = PBXBuildFile; fileRef = 49D5C8B52767081E0076FB22 /* GLTFShaderModifierFragment_alphaCutoff.shader */; };
 		49FBB51427670C3200674883 /* GLTFShaderModifierSurface_doubleSidedWorkaround.shader in Resources */ = {isa = PBXBuildFile; fileRef = 49D5C8B62767081E0076FB22 /* GLTFShaderModifierSurface_doubleSidedWorkaround.shader */; };
+		5988D75B2B182A4300CAE98E /* KTXLoader.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5988D75A2B182A4300CAE98E /* KTXLoader.docc */; };
+		5988D7612B182A4400CAE98E /* KTXLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D7572B182A4300CAE98E /* KTXLoader.framework */; };
+		5988D7682B182A4400CAE98E /* KTXLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5988D7672B182A4400CAE98E /* KTXLoaderTests.swift */; };
+		5988D7692B182A4400CAE98E /* KTXLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 5988D7592B182A4300CAE98E /* KTXLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5988D7742B182AA500CAE98E /* KTXLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5988D7462B170D1000CAE98E /* KTXLoader.mm */; };
+		5988D77C2B182F0000CAE98E /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D77B2B182F0000CAE98E /* Metal.framework */; };
+		59EF3D022B1DABAF00002972 /* GLTFKTX2Support.h in Headers */ = {isa = PBXBuildFile; fileRef = 59EF3D002B1DABAF00002972 /* GLTFKTX2Support.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59EF3D052B1DB13F00002972 /* GLTFKTX2Support.mm in Sources */ = {isa = PBXBuildFile; fileRef = 59EF3D042B1DB13F00002972 /* GLTFKTX2Support.mm */; };
+		59EF3D0B2B1F0CF100002972 /* KTXLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D7572B182A4300CAE98E /* KTXLoader.framework */; platformFilter = ios; };
+		59EF3D0C2B1F0CF100002972 /* KTXLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D7572B182A4300CAE98E /* KTXLoader.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59EF3D0E2B1F0CF400002972 /* KTXLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D7572B182A4300CAE98E /* KTXLoader.framework */; };
+		59EF3D0F2B1F0CF400002972 /* KTXLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D7572B182A4300CAE98E /* KTXLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59EF3D112B1F0EEB00002972 /* ktx.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EF3D082B1EFA8000002972 /* ktx.xcframework */; };
+		59EF3D122B1F0EEB00002972 /* ktx.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59EF3D082B1EFA8000002972 /* ktx.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD10459A1F47723D004B20CE /* GLTFTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1045991F47723D004B20CE /* GLTFTypes.swift */; };
 		DD10459C1F4772E3004B20CE /* GLTFErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10459B1F4772E3004B20CE /* GLTFErrors.swift */; };
 		DD2E982E1F4CF5B800D47C89 /* ExtensionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E982D1F4CF5B800D47C89 /* ExtensionList.swift */; };
@@ -143,6 +157,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5988D7622B182A4400CAE98E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8392431F466C2D006A1CAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5988D7562B182A4300CAE98E;
+			remoteInfo = KTXLoader;
+		};
+		5988D7642B182A4400CAE98E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8392431F466C2D006A1CAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB221D91F525D6E002CFA4D;
+			remoteInfo = GLTFSceneKitSample_iOS;
+		};
+		5988D7792B182C7600CAE98E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8392431F466C2D006A1CAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5988D7562B182A4300CAE98E;
+			remoteInfo = KTXLoader;
+		};
+		59A97D722B22FC6D00E3745B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8392431F466C2D006A1CAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5988D7562B182A4300CAE98E;
+			remoteInfo = KTXLoader;
+		};
 		DDC376C61F5286FD0015764C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DD8392431F466C2D006A1CAC /* Project object */;
@@ -160,6 +202,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		59EF3D0D2B1F0CF100002972 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				59EF3D0C2B1F0CF100002972 /* KTXLoader.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59EF3D102B1F0CF400002972 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				59EF3D0F2B1F0CF400002972 /* KTXLoader.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59EF3D132B1F0EEB00002972 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				59EF3D122B1F0EEB00002972 /* ktx.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDC376C81F5286FD0015764C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,6 +279,17 @@
 		49DFA9BD26A45A710009965E /* GLTFSceneKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLTFSceneKit.h; sourceTree = "<group>"; };
 		49DFA9C026A47D520009965E /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		49DFAA2F26A4FC9F0009965E /* GLTFVRM_VRM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLTFVRM_VRM.swift; sourceTree = "<group>"; };
+		5988D7462B170D1000CAE98E /* KTXLoader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = KTXLoader.mm; sourceTree = "<group>"; };
+		5988D7482B170F7C00CAE98E /* KTX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KTX-Bridging-Header.h"; sourceTree = "<group>"; };
+		5988D7572B182A4300CAE98E /* KTXLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KTXLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5988D7592B182A4300CAE98E /* KTXLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KTXLoader.h; sourceTree = "<group>"; };
+		5988D75A2B182A4300CAE98E /* KTXLoader.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = KTXLoader.docc; sourceTree = "<group>"; };
+		5988D7602B182A4300CAE98E /* KTXLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KTXLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5988D7672B182A4400CAE98E /* KTXLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTXLoaderTests.swift; sourceTree = "<group>"; };
+		5988D77B2B182F0000CAE98E /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		59EF3D002B1DABAF00002972 /* GLTFKTX2Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTFKTX2Support.h; sourceTree = "<group>"; };
+		59EF3D042B1DB13F00002972 /* GLTFKTX2Support.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTFKTX2Support.mm; sourceTree = "<group>"; };
+		59EF3D082B1EFA8000002972 /* ktx.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ktx.xcframework; sourceTree = "<group>"; };
 		DD1045991F47723D004B20CE /* GLTFTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLTFTypes.swift; sourceTree = "<group>"; };
 		DD10459B1F4772E3004B20CE /* GLTFErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLTFErrors.swift; sourceTree = "<group>"; };
 		DD2E982D1F4CF5B800D47C89 /* ExtensionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionList.swift; sourceTree = "<group>"; };
@@ -267,10 +353,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5988D7542B182A4300CAE98E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5988D77C2B182F0000CAE98E /* Metal.framework in Frameworks */,
+				59EF3D112B1F0EEB00002972 /* ktx.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5988D75D2B182A4300CAE98E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5988D7612B182A4400CAE98E /* KTXLoader.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD3EB06D1F52476B009F32D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59EF3D0B2B1F0CF100002972 /* KTXLoader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +382,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59EF3D0E2B1F0CF400002972 /* KTXLoader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +450,43 @@
 			path = KHR_materials_pbrSpecularGlossiness;
 			sourceTree = "<group>";
 		};
+		5988D7442B170CA900CAE98E /* libktx */ = {
+			isa = PBXGroup;
+			children = (
+				59EF3D082B1EFA8000002972 /* ktx.xcframework */,
+			);
+			path = libktx;
+			sourceTree = "<group>";
+		};
+		5988D7582B182A4300CAE98E /* KTXLoader */ = {
+			isa = PBXGroup;
+			children = (
+				5988D7442B170CA900CAE98E /* libktx */,
+				5988D7592B182A4300CAE98E /* KTXLoader.h */,
+				5988D7462B170D1000CAE98E /* KTXLoader.mm */,
+				59EF3D002B1DABAF00002972 /* GLTFKTX2Support.h */,
+				59EF3D042B1DB13F00002972 /* GLTFKTX2Support.mm */,
+				5988D75A2B182A4300CAE98E /* KTXLoader.docc */,
+			);
+			path = KTXLoader;
+			sourceTree = "<group>";
+		};
+		5988D7662B182A4400CAE98E /* KTXLoaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				5988D7672B182A4400CAE98E /* KTXLoaderTests.swift */,
+			);
+			path = KTXLoaderTests;
+			sourceTree = "<group>";
+		};
+		5988D7762B182C3400CAE98E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5988D77B2B182F0000CAE98E /* Metal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DD2E982B1F4CF55400D47C89 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,8 +511,11 @@
 			children = (
 				49DFA9C026A47D520009965E /* Package.swift */,
 				DD83924E1F466C2D006A1CAC /* Sources */,
+				5988D7582B182A4300CAE98E /* KTXLoader */,
+				5988D7662B182A4400CAE98E /* KTXLoaderTests */,
 				DD83924D1F466C2D006A1CAC /* Products */,
 				DDE6FD831F46708100CB11D6 /* Sample */,
+				5988D7762B182C3400CAE98E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -381,6 +526,8 @@
 				DDE6FDB41F4671B000CB11D6 /* GLTFSceneKitSample.app */,
 				DD3EB0711F52476B009F32D2 /* GLTFSceneKit.framework */,
 				DDB221DA1F525D6E002CFA4D /* GLTFSceneKitSample.app */,
+				5988D7572B182A4300CAE98E /* KTXLoader.framework */,
+				5988D7602B182A4300CAE98E /* KTXLoaderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -404,6 +551,7 @@
 		DDB221EF1F525E93002CFA4D /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				5988D7482B170F7C00CAE98E /* KTX-Bridging-Header.h */,
 				DDB221F01F525E93002CFA4D /* AppDelegate.swift */,
 				DDB221F11F525E93002CFA4D /* Assets.xcassets */,
 				DDB221F21F525E93002CFA4D /* LaunchScreen.storyboard */,
@@ -516,6 +664,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5988D7522B182A4300CAE98E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59EF3D022B1DABAF00002972 /* GLTFKTX2Support.h in Headers */,
+				5988D7692B182A4400CAE98E /* KTXLoader.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD3EB06E1F52476B009F32D2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -535,18 +692,58 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DD3EB0701F52476B009F32D2 /* GLTFSceneKit_iOS */ = {
+		5988D7562B182A4300CAE98E /* KTXLoader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD3EB0781F52476C009F32D2 /* Build configuration list for PBXNativeTarget "GLTFSceneKit_iOS" */;
+			buildConfigurationList = 5988D76E2B182A4500CAE98E /* Build configuration list for PBXNativeTarget "KTXLoader" */;
 			buildPhases = (
-				DD3EB06C1F52476B009F32D2 /* Sources */,
-				DD3EB06D1F52476B009F32D2 /* Frameworks */,
-				DD3EB06E1F52476B009F32D2 /* Headers */,
-				DD3EB06F1F52476B009F32D2 /* Resources */,
+				5988D7522B182A4300CAE98E /* Headers */,
+				5988D7532B182A4300CAE98E /* Sources */,
+				5988D7542B182A4300CAE98E /* Frameworks */,
+				5988D7552B182A4300CAE98E /* Resources */,
+				59EF3D132B1F0EEB00002972 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = KTXLoader;
+			productName = KTXLoader;
+			productReference = 5988D7572B182A4300CAE98E /* KTXLoader.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5988D75F2B182A4300CAE98E /* KTXLoaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5988D7712B182A4500CAE98E /* Build configuration list for PBXNativeTarget "KTXLoaderTests" */;
+			buildPhases = (
+				5988D75C2B182A4300CAE98E /* Sources */,
+				5988D75D2B182A4300CAE98E /* Frameworks */,
+				5988D75E2B182A4300CAE98E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5988D7632B182A4400CAE98E /* PBXTargetDependency */,
+				5988D7652B182A4400CAE98E /* PBXTargetDependency */,
+			);
+			name = KTXLoaderTests;
+			productName = KTXLoaderTests;
+			productReference = 5988D7602B182A4300CAE98E /* KTXLoaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD3EB0701F52476B009F32D2 /* GLTFSceneKit_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD3EB0781F52476C009F32D2 /* Build configuration list for PBXNativeTarget "GLTFSceneKit_iOS" */;
+			buildPhases = (
+				DD3EB06E1F52476B009F32D2 /* Headers */,
+				DD3EB06C1F52476B009F32D2 /* Sources */,
+				DD3EB06D1F52476B009F32D2 /* Frameworks */,
+				DD3EB06F1F52476B009F32D2 /* Resources */,
+				59EF3D0D2B1F0CF100002972 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5988D77A2B182C7600CAE98E /* PBXTargetDependency */,
 			);
 			name = GLTFSceneKit_iOS;
 			productName = GLTFSceneKit_iOS;
@@ -561,10 +758,12 @@
 				DD8392481F466C2D006A1CAC /* Frameworks */,
 				DD8392491F466C2D006A1CAC /* Headers */,
 				DD83924A1F466C2D006A1CAC /* Resources */,
+				59EF3D102B1F0CF400002972 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				59A97D732B22FC6D00E3745B /* PBXTargetDependency */,
 			);
 			name = GLTFSceneKit_macOS;
 			productName = GLTFSceneKit;
@@ -615,13 +814,20 @@
 		DD8392431F466C2D006A1CAC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = DarkHorse;
 				TargetAttributes = {
+					5988D7562B182A4300CAE98E = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					5988D75F2B182A4300CAE98E = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = DDB221D91F525D6E002CFA4D;
+					};
 					DD3EB0701F52476B009F32D2 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1510;
 					};
 					DD83924B1F466C2D006A1CAC = {
 						CreatedOnToolsVersion = 9.0;
@@ -657,11 +863,27 @@
 				DD3EB0701F52476B009F32D2 /* GLTFSceneKit_iOS */,
 				DDE6FDB31F4671B000CB11D6 /* GLTFSceneKitSample_macOS */,
 				DDB221D91F525D6E002CFA4D /* GLTFSceneKitSample_iOS */,
+				5988D7562B182A4300CAE98E /* KTXLoader */,
+				5988D75F2B182A4300CAE98E /* KTXLoaderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5988D7552B182A4300CAE98E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5988D75E2B182A4300CAE98E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD3EB06F1F52476B009F32D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -719,6 +941,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5988D7532B182A4300CAE98E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5988D7742B182AA500CAE98E /* KTXLoader.mm in Sources */,
+				59EF3D052B1DB13F00002972 /* GLTFKTX2Support.mm in Sources */,
+				5988D75B2B182A4300CAE98E /* KTXLoader.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5988D75C2B182A4300CAE98E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5988D7682B182A4400CAE98E /* KTXLoaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD3EB06C1F52476B009F32D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -851,6 +1091,27 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5988D7632B182A4400CAE98E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5988D7562B182A4300CAE98E /* KTXLoader */;
+			targetProxy = 5988D7622B182A4400CAE98E /* PBXContainerItemProxy */;
+		};
+		5988D7652B182A4400CAE98E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB221D91F525D6E002CFA4D /* GLTFSceneKitSample_iOS */;
+			targetProxy = 5988D7642B182A4400CAE98E /* PBXContainerItemProxy */;
+		};
+		5988D77A2B182C7600CAE98E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 5988D7562B182A4300CAE98E /* KTXLoader */;
+			targetProxy = 5988D7792B182C7600CAE98E /* PBXContainerItemProxy */;
+		};
+		59A97D732B22FC6D00E3745B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5988D7562B182A4300CAE98E /* KTXLoader */;
+			targetProxy = 59A97D722B22FC6D00E3745B /* PBXContainerItemProxy */;
+		};
 		DDC376C71F5286FD0015764C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DD3EB0701F52476B009F32D2 /* GLTFSceneKit_iOS */;
@@ -891,13 +1152,184 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5988D76F2B182A4500CAE98E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KTXLoader/libktx",
+				);
+				GCC_C_LANGUAGE_STANDARD = c17;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/KTXLoader";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 DarkHorse. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "c17 c++20";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.screeningeagle.KTXLoader;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+			};
+			name = Debug;
+		};
+		5988D7702B182A4500CAE98E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KTXLoader/libktx",
+				);
+				GCC_C_LANGUAGE_STANDARD = c17;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/KTXLoader";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 DarkHorse. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "c17 c++20";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.screeningeagle.KTXLoader;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+			};
+			name = Release;
+		};
+		5988D7722B182A4500CAE98E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79SQK82M6R;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.screeningeagle.KTXLoaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GLTFSceneKitSample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GLTFSceneKitSample";
+			};
+			name = Debug;
+		};
+		5988D7732B182A4500CAE98E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79SQK82M6R;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.screeningeagle.KTXLoaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GLTFSceneKitSample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GLTFSceneKitSample";
+			};
+			name = Release;
+		};
 		DD3EB0761F52476C009F32D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -905,14 +1337,19 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/GLTFSceneKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 0.3.0;
 				OTHER_CFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.0spec.GLTFSceneKit;
 				PRODUCT_NAME = GLTFSceneKit;
-				SDKROOT = iphoneos;
+				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG SEEMS_TO_HAVE_VALIDATE_VERTEX_ATTRIBUTE_BUG SEEMS_TO_HAVE_PNG_LOADING_BUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
@@ -921,10 +1358,11 @@
 		DD3EB0771F52476C009F32D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -932,12 +1370,16 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/GLTFSceneKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 0.3.0;
 				OTHER_CFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.0spec.GLTFSceneKit;
 				PRODUCT_NAME = GLTFSceneKit;
-				SDKROOT = iphoneos;
+				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SEEMS_TO_HAVE_VALIDATE_VERTEX_ATTRIBUTE_BUG SEEMS_TO_HAVE_PNG_LOADING_BUG";
 				SWIFT_VERSION = 4.2;
@@ -956,6 +1398,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -1000,6 +1443,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1019,6 +1463,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -1057,8 +1502,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1079,7 +1526,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/GLTFSceneKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 0.3.0;
 				OTHER_CFLAGS = "";
@@ -1108,7 +1558,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/GLTFSceneKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 0.3.0;
 				OTHER_CFLAGS = "";
@@ -1128,10 +1581,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sources/KTXLoader/libktx",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sample/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.0spec.GLTFSceneKitSample;
 				PRODUCT_NAME = GLTFSceneKitSample;
@@ -1147,10 +1607,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sources/KTXLoader/libktx",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sample/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.0spec.GLTFSceneKitSample;
 				PRODUCT_NAME = GLTFSceneKitSample;
@@ -1167,10 +1634,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sample/macOS/GameSample.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Sample/macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.0spec.GLTFSceneKitSample-macOS";
@@ -1186,10 +1657,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sample/macOS/GameSample.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Sample/macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.0spec.GLTFSceneKitSample-macOS";
@@ -1202,6 +1677,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5988D76E2B182A4500CAE98E /* Build configuration list for PBXNativeTarget "KTXLoader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5988D76F2B182A4500CAE98E /* Debug */,
+				5988D7702B182A4500CAE98E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5988D7712B182A4500CAE98E /* Build configuration list for PBXNativeTarget "KTXLoaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5988D7722B182A4500CAE98E /* Debug */,
+				5988D7732B182A4500CAE98E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DD3EB0781F52476C009F32D2 /* Build configuration list for PBXNativeTarget "GLTFSceneKit_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

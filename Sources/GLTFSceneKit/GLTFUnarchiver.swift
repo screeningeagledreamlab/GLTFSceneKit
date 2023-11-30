@@ -10,6 +10,7 @@ import SceneKit
 import SpriteKit
 import QuartzCore
 import CoreGraphics
+import KTXLoader
 
 let glbMagic = 0x46546C67 // "glTF"
 let chunkTypeJSON = 0x4E4F534A // "JSON"
@@ -873,7 +874,7 @@ public class GLTFUnarchiver {
         property.wrapT = wrapT
     }
     
-    private func loadTexture(index: Int) throws -> SCNMaterialProperty {
+    private func loadTexture(index: Int) throws -> Any? {
         guard index < self.textures.count else {
             throw GLTFUnarchiveError.DataInconsistent("loadTexture: out of index: \(index) < \(self.textures.count)")
         }
@@ -887,17 +888,84 @@ public class GLTFUnarchiver {
         }
         let glTexture = textures[index]
         
-        guard let sourceIndex = glTexture.source else {
-            throw GLTFUnarchiveError.NotSupported("loadTexture: texture without source is not supported")
+        func loadTextureToMetalTexture(index: GLTFGlTFid) throws -> MTLTexture {
+            guard index < self.images.count else {
+                throw GLTFUnarchiveError.DataInconsistent("loadTexture: out of index: \(index) < \(self.images.count)")
+            }
+
+            guard let images = self.json.images else {
+                throw GLTFUnarchiveError.DataInconsistent("loadTexture: images is not defined")
+            }
+            let glImage = images[index]
+
+            func loadKTXTextureData(_ data: Data) throws -> MTLTexture {
+                guard let device = MTLCreateSystemDefaultDevice() else {
+                    throw GLTFUnarchiveError.NotSupported("loadTexture: loading texture as a metal texture requires a metal device")
+                }
+
+                let loader = try KTXLoader(data: data, device: device)
+                let metalTexture = loader.loadTexture(using: device)
+                return metalTexture
+            }
+
+            if let uri = glImage.uri {
+                if let base64Str = self.getBase64Str(from: uri) {
+                    guard let data = Data(base64Encoded: base64Str) else {
+                        throw GLTFUnarchiveError.DataInconsistent("loadTexture: cannot convert the base64 string to Data")
+                    }
+                    if let mimeType = glImage.mimeType, mimeType == "image/ktx2" {
+                        return try loadKTXTextureData(data)
+                    } else {
+                        throw GLTFUnarchiveError.NotSupported("loadTexture: Image \(glImage.mimeType ?? "mime type") is not supported")
+                    }
+
+                } else {
+                    let url = URL(fileURLWithPath: uri, relativeTo: self.directoryPath)
+                    let data = try Data(contentsOf: url)
+                    if let mimeType = glImage.mimeType, mimeType == "image/ktx2" {
+                        return try loadKTXTextureData(data)
+                    } else {
+                        throw GLTFUnarchiveError.NotSupported("loadTexture: Image \(glImage.mimeType ?? "mime type") is not supported")
+                    }
+                }
+
+            } else if let bufferViewIndex = glImage.bufferView {
+                do {
+                    let data = try loadBufferView(index: bufferViewIndex)
+                    if let mimeType = glImage.mimeType, mimeType == GLTFMediaTypeKTX2 {
+                        return try loadKTXTextureData(data)
+                    } else {
+                        throw GLTFUnarchiveError.NotSupported("loadTexture: Image \(glImage.mimeType ?? "mime type") is not supported")
+                    }
+                } catch {
+                    throw error
+                }
+            } else {
+                throw GLTFUnarchiveError.DataInconsistent("loadTexture: Image data source is not defined")
+            }
         }
-        let image = try self.loadImage(index: sourceIndex)
         
+        if let khrTextureBasisU = glTexture.extensions?.extensions["KHR_texture_basisu"] as? [String: Codable],
+            let sourceIndex = khrTextureBasisU["source"] as? GLTFGlTFid {
+            let metalTexture = try loadTextureToMetalTexture(index: sourceIndex)
+            glTexture.didLoad(by: metalTexture, unarchiver: self)
+            return metalTexture
+        }
+
+        guard let sourceIndex = glTexture.source else {
+            let metalTexture = try loadTextureToMetalTexture(index: 0)
+            glTexture.didLoad(by: metalTexture, unarchiver: self)
+            return metalTexture
+        }
+        
+        let image = try self.loadImage(index: sourceIndex)
         let texture = SCNMaterialProperty(contents: image)
+
         // enable Texture filtering sample so we get less aliasing when they are farther away
         texture.mipFilter = .linear
-        
+
         // TODO: retain glTexture.name somewhere
-        
+
         if let sampler = glTexture.sampler {
             try self.setSampler(index: sampler, to: texture)
         } else {
@@ -905,31 +973,39 @@ public class GLTFUnarchiver {
             texture.wrapS = .repeat
             texture.wrapT = .repeat
         }
-        
+
         self.textures[index] = texture
-        
+
         glTexture.didLoad(by: texture, unarchiver: self)
         return texture
     }
     
     func setTexture(index: Int, to property: SCNMaterialProperty) throws {
         let texture = try self.loadTexture(index: index)
-        guard let contents = texture.contents else {
-            throw GLTFUnarchiveError.DataInconsistent("setTexture: contents of texture \(index) is nil")
-        }
-        
-        property.contents = contents
-        property.minificationFilter = texture.minificationFilter
-        property.magnificationFilter = texture.magnificationFilter
-        property.mipFilter = texture.mipFilter
-        property.wrapS = texture.wrapS
-        property.wrapT = texture.wrapT
-        property.intensity = texture.intensity
-        property.maxAnisotropy = texture.maxAnisotropy
-        property.contentsTransform = texture.contentsTransform
-        property.mappingChannel = texture.mappingChannel
-        if #available(OSX 10.13, *) {
-            property.textureComponents = texture.textureComponents
+        if let materialProperty = texture as? SCNMaterialProperty {
+            guard let contents = materialProperty.contents else {
+                throw GLTFUnarchiveError.DataInconsistent("setTexture: contents of texture \(index) is nil")
+            }
+
+            property.contents = contents
+            property.minificationFilter = materialProperty.minificationFilter
+            property.magnificationFilter = materialProperty.magnificationFilter
+            property.mipFilter = materialProperty.mipFilter
+            property.wrapS = materialProperty.wrapS
+            property.wrapT = materialProperty.wrapT
+            property.intensity = materialProperty.intensity
+            property.maxAnisotropy = materialProperty.maxAnisotropy
+            property.contentsTransform = materialProperty.contentsTransform
+            property.mappingChannel = materialProperty.mappingChannel
+            if #available(OSX 10.13, *) {
+                property.textureComponents = materialProperty.textureComponents
+            }
+        } else if let metalTexture = texture as? MTLTexture {
+            property.contents = metalTexture
+
+            if let glTexture = self.json.textures?[index], let sampler = glTexture.sampler {
+                try setSampler(index: sampler, to: property)
+            }
         }
     }
     
@@ -984,7 +1060,7 @@ public class GLTFUnarchiver {
             if let baseTexture = pbr.baseColorTexture {
                 try self.setTexture(index: baseTexture.index, to: material.diffuse)
                 material.diffuse.mappingChannel = baseTexture.texCoord
-                
+
                 //let baseColorFactor = createVector4(pbr.baseColorFactor)
                 //material.setValue(NSValue(scnVector4: baseColorFactor), forKeyPath: "baseColorFactor")
                 material.setValue(pbr.baseColorFactor[0], forKey: "baseColorFactorR")
@@ -1044,15 +1120,19 @@ public class GLTFUnarchiver {
         
         material.isDoubleSided = glMaterial.doubleSided
 
-        material.shaderModifiers = [
-            .surface: try! String(contentsOf: URL(fileURLWithPath: bundle.path(forResource: "GLTFShaderModifierSurface", ofType: "shader")!), encoding: String.Encoding.utf8)
-        ]
+        if let surfaceModifier = try? String(contentsOf: URL(fileURLWithPath: bundle.path(forResource: "GLTFShaderModifierSurface", ofType: "shader")!), encoding: String.Encoding.utf8) {
+            material.shaderModifiers = [
+                .surface: surfaceModifier
+            ]
+        }
         #if SEEMS_TO_HAVE_DOUBLESIDED_BUG
-            if material.isDoubleSided {
+        if material.isDoubleSided {
+            if let surfaceModifier = try? String(contentsOf: URL(fileURLWithPath: bundle.path(forResource: "GLTFShaderModifierSurface_doubleSidedWorkaround", ofType: "shader")!), encoding: String.Encoding.utf8) {
                 material.shaderModifiers = [
-                    .surface: try! String(contentsOf: URL(fileURLWithPath: bundle.path(forResource: "GLTFShaderModifierSurface_doubleSidedWorkaround", ofType: "shader")!), encoding: String.Encoding.utf8)
+                    .surface: surfaceModifier
                 ]
             }
+        }
         #endif
         
         switch glMaterial.alphaMode {
@@ -1061,9 +1141,13 @@ public class GLTFUnarchiver {
         case "BLEND":
             material.blendMode = .alpha
             material.writesToDepthBuffer = false
-            material.shaderModifiers![.surface] = try! String(contentsOf: URL(fileURLWithPath: bundle.path(forResource: "GLTFShaderModifierSurface_alphaModeBlend", ofType: "shader")!), encoding: String.Encoding.utf8)
+            if let surfaceModifier = try? String(contentsOf: URL(fileURLWithPath: bundle.path(forResource: "GLTFShaderModifierSurface_alphaModeBlend", ofType: "shader")!), encoding: String.Encoding.utf8)  {
+                material.shaderModifiers?[.surface] = surfaceModifier
+            }
         case "MASK":
-            material.shaderModifiers![.fragment] = try! String(contentsOf: URL(fileURLWithPath: bundle.path(forResource: "GLTFShaderModifierFragment_alphaCutoff", ofType: "shader")!), encoding: String.Encoding.utf8)
+            if let fragmentModifier = try? String(contentsOf: URL(fileURLWithPath: bundle.path(forResource: "GLTFShaderModifierSurface_alphaModeBlend", ofType: "shader")!), encoding: String.Encoding.utf8) {
+                material.shaderModifiers?[.fragment] = fragmentModifier
+            }
         default:
             throw GLTFUnarchiveError.NotSupported("loadMaterial: alphaMode \(glMaterial.alphaMode) is not supported")
         }
