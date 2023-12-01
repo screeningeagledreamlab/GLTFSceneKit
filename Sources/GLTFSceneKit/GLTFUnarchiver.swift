@@ -220,8 +220,12 @@ public class GLTFUnarchiver {
 
                                                  for (child_key, child_value) in ((nodes[0] as! NodeContainer).node as! NSDictionary) {
 
-                                                     if (child_key as? String == "_id") {
-                                                         thisId = child_value as! String
+                                                     if (child_key as? String == "_attributes") {
+                                                         for (attribute_key, attribute_value) in (child_value as! NSDictionary) {
+                                                             if (attribute_key as? String == "id") {
+                                                                 thisId = attribute_value as! String
+                                                             }
+                                                         }
                                                      }
                                                      else
                                                      if ((child_value as? NSArray) != nil) {
