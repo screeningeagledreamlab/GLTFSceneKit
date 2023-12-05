@@ -57,6 +57,7 @@
 		59EF3D0F2B1F0CF400002972 /* KTXLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D7572B182A4300CAE98E /* KTXLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59EF3D112B1F0EEB00002972 /* ktx.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EF3D082B1EFA8000002972 /* ktx.xcframework */; };
 		59EF3D122B1F0EEB00002972 /* ktx.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59EF3D082B1EFA8000002972 /* ktx.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59EF3D142B1F114400002972 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE6FDA61F46716500CB11D6 /* art.scnassets */; };
 		DD10459A1F47723D004B20CE /* GLTFTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1045991F47723D004B20CE /* GLTFTypes.swift */; };
 		DD10459C1F4772E3004B20CE /* GLTFErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10459B1F4772E3004B20CE /* GLTFErrors.swift */; };
 		DD2E982E1F4CF5B800D47C89 /* ExtensionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E982D1F4CF5B800D47C89 /* ExtensionList.swift */; };
@@ -881,6 +882,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59EF3D142B1F114400002972 /* art.scnassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
